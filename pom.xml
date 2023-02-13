@@ -91,7 +91,7 @@
 						<wsdlUrl>http://selo.tjsc.jus.br/SeloService31Teste?wsdl</wsdlUrl>
 					</wsdlUrls>
 					<keep>true</keep>
-					<packageName>br.com.github.GabrielRechBrand.integrationtjsc.tjsc</packageName>
+					<packageName>br.com.github.GabrielRechBrand.integrationtjsc.model</packageName>
 					<sourceDestDir>src/main/java</sourceDestDir>
 				</configuration>
 			</plugin>
