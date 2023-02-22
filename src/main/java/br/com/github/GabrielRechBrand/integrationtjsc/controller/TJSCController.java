@@ -1,6 +1,5 @@
 package br.com.github.GabrielRechBrand.integrationtjsc.controller;
 
-import br.com.github.GabrielRechBrand.integrationtjsc.model.SeloService;
 import br.com.github.GabrielRechBrand.integrationtjsc.service.TJSCService;
 
 import lombok.SneakyThrows;

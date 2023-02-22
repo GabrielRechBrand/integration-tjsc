@@ -1,10 +1,11 @@
 package br.com.github.GabrielRechBrand.integrationtjsc.service;
 
-import br.com.github.GabrielRechBrand.integrationtjsc.model.EnteDeclaradoUtilidadePublicaEstadual;
-import br.com.github.GabrielRechBrand.integrationtjsc.model.Exception_Exception;
-import br.com.github.GabrielRechBrand.integrationtjsc.model.SeloService_Service;
+import br.com.github.GabrielRechBrand.integrationtjsc.tjsc.EnteDeclaradoUtilidadePublicaEstadual;
+import br.com.github.GabrielRechBrand.integrationtjsc.tjsc.Exception_Exception;
+import br.com.github.GabrielRechBrand.integrationtjsc.tjsc.SeloService;
+import br.com.github.GabrielRechBrand.integrationtjsc.tjsc.SeloService_Service;
 import lombok.SneakyThrows;
-import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +24,7 @@ public class TJSCService {
     }
 
     public List<EnteDeclaradoUtilidadePublicaEstadual> getEntesDeclaradosUtilidadePublicaEstadual() throws Exception_Exception {
-        return getWsdlSelo().getSeloServicePort().getEntesDeclaradosUtilidadePublicaEstadual();
+        return getWsdlSelo().getPort(SeloService.class).getEntesDeclaradosUtilidadePublicaEstadual();
     }
 
 }
