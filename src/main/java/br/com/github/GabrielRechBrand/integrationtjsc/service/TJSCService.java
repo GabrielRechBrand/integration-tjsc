@@ -1,35 +1,29 @@
 package br.com.github.GabrielRechBrand.integrationtjsc.service;
 
-import br.com.github.GabrielRechBrand.integrationtjsc.model.SeloService;
-import jakarta.xml.ws.Service;
-import jakarta.xml.ws.WebEndpoint;
-import jakarta.xml.ws.WebServiceClient;
+import br.com.github.GabrielRechBrand.integrationtjsc.model.EnteDeclaradoUtilidadePublicaEstadual;
+import br.com.github.GabrielRechBrand.integrationtjsc.model.Exception_Exception;
+import br.com.github.GabrielRechBrand.integrationtjsc.model.SeloService_Service;
+import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
-import javax.xml.namespace.QName;
-import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.List;
 
-@WebServiceClient(name = "SeloService", targetNamespace = "http://www.tjsc.jus.br/selo", wsdlLocation = "http://selo.tjsc.jus.br/SeloService31Teste?wsdl")
-public class TJSCService extends Service {
+@Service
+public class TJSCService {
 
-    private final static QName TJSC_QNAME = new QName("http://www.tjsc.jus.br/selo", "SeloService");
-    private static URL TJSC_URL = null;
+    @Value("${integration.tjsc.url}")
+    String url;
 
-    static {
-        try {
-            TJSC_URL = new URL("http://selo.tjsc.jus.br/SeloService31Teste?wsdl");
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
+    @SneakyThrows
+    protected SeloService_Service getWsdlSelo() {
+        return new SeloService_Service(new URL(url));
     }
 
-    public TJSCService() {
-        super(TJSC_URL, TJSC_QNAME);
-    }
-
-    @WebEndpoint(name = "SeloServicePort")
-    public SeloService getSeloServicePort() {
-        return super.getPort(new QName("http://www.tjsc.jus.br/selo", "SeloServicePort"), SeloService.class);
+    public List<EnteDeclaradoUtilidadePublicaEstadual> getEntesDeclaradosUtilidadePublicaEstadual() throws Exception_Exception {
+        return getWsdlSelo().getSeloServicePort().getEntesDeclaradosUtilidadePublicaEstadual();
     }
 
 }
