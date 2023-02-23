@@ -1,8 +1,6 @@
 package br.com.github.GabrielRechBrand.integrationtjsc.service;
 
 import br.com.github.GabrielRechBrand.integrationtjsc.tjsc.EnteDeclaradoUtilidadePublicaEstadual;
-import br.com.github.GabrielRechBrand.integrationtjsc.tjsc.Exception_Exception;
-import br.com.github.GabrielRechBrand.integrationtjsc.tjsc.SeloService;
 import br.com.github.GabrielRechBrand.integrationtjsc.tjsc.SeloService_Service;
 import lombok.SneakyThrows;
 
@@ -19,12 +17,13 @@ public class TJSCService {
     String url;
 
     @SneakyThrows
-    protected SeloService_Service getWsdlSelo() {
+    protected SeloService_Service getSeloService() {
         return new SeloService_Service(new URL(url));
     }
 
-    public List<EnteDeclaradoUtilidadePublicaEstadual> getEntesDeclaradosUtilidadePublicaEstadual() throws Exception_Exception {
-        return getWsdlSelo().getPort(SeloService.class).getEntesDeclaradosUtilidadePublicaEstadual();
+    @SneakyThrows
+    public List<EnteDeclaradoUtilidadePublicaEstadual> getEntesDeclaradosUtilidadePublicaEstadual() {
+        return getSeloService().getSeloServicePort().getEntesDeclaradosUtilidadePublicaEstadual();
     }
 
 }
