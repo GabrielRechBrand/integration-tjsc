@@ -95,7 +95,7 @@ public class TJSCService {
         return getSeloService().getSeloServicePort().getTiposDeServentuario();
     }
 
-    public List<MotivoProtesto> getMotivosDeProtesto() {
+    public List<MotivoProtesto> getMotivosProtesto() {
         return getSeloService().getSeloServicePort().getMotivosDeProtesto();
     }
 
