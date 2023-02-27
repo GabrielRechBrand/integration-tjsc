@@ -104,7 +104,7 @@ public class TJSCController {
         return ResponseEntity.ok(tjscService.getEtnias());
     }
 
-    @GetMapping("/etnias")
+    @GetMapping("/estados-civis")
     public ResponseEntity<List<EstadoCivil>> getEstadosCivis() {
         return ResponseEntity.ok(tjscService.getEstadosCivis());
     }

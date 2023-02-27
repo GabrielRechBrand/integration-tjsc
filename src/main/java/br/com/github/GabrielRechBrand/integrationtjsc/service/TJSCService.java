@@ -13,13 +13,13 @@ import java.util.List;
 @Service
 public class TJSCService {
 
-    @Value("${integration.tjsc.url}")
+    @Value("${integration.tjsc.wsdl.url}")
     String url;
 
-    @Value("${integration.tjsc.usuario}")
+    @Value("${spring.security.user.name}")
     String user;
 
-    @Value("${integration.tjsc.senha}")
+    @Value("${spring.security.user.password}")
     String password;
 
     @SneakyThrows
