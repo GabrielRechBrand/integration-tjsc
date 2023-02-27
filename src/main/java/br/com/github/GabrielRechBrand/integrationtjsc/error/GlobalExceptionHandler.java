@@ -13,7 +13,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler
     public ResponseEntity<String> handleException(HttpMessageNotReadableException e) {
-        return new ResponseEntity<>(ERROR_MESSAGE.concat("JSON Mal formatado"), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(ERROR_MESSAGE.concat("JSON Mal formatado."), HttpStatus.BAD_REQUEST);
     }
 
 }

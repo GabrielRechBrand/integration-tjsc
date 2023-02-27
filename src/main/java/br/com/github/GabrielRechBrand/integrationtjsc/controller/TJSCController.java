@@ -139,6 +139,61 @@ public class TJSCController {
         return ResponseEntity.ok(tjscService.getBancos());
     }
 
+    @GetMapping("/selos-pedido/{pedido}/{isento}")
+    public ResponseEntity<byte[]> getSelosPedido(@PathVariable Long pedido, @PathVariable Boolean isento) {
+        return ResponseEntity.ok(tjscService.getSelosPedido(pedido, isento));
+    }
+
+    @GetMapping("/selos-pedido-compactados/{pedido}/{isento}")
+    public ResponseEntity<byte[]> getSelosPedidoCompactados(@PathVariable Long pedido, @PathVariable Boolean isento) {
+        return ResponseEntity.ok(tjscService.getSelosPedidoCompactados(pedido, isento));
+    }
+
+    @GetMapping("/motivo-cancelamento-protesto")
+    public ResponseEntity<List<MotivoCancelProtesto>> getMotivoCancelamentoProtesto() {
+        return ResponseEntity.ok(tjscService.getMotivoCancelamentoProtesto());
+    }
+
+    @GetMapping("/selos")
+    public ResponseEntity<byte[]> getSelos() {
+        return ResponseEntity.ok(tjscService.getSelos());
+    }
+
+    @GetMapping("/selos-compactados")
+    public ResponseEntity<byte[]> getSelosCompactados() {
+        return ResponseEntity.ok(tjscService.getSelosCompactados());
+    }
+
+    @GetMapping("/cartorio-livros")
+    public ResponseEntity<List<CartorioLivro>> getCartorioLivros() {
+        return ResponseEntity.ok(tjscService.getCartorioLivros());
+    }
+
+    @GetMapping("/cartorio-livros-20")
+    public ResponseEntity<List<CartorioLivro20>> getCartorioLivros20() {
+        return ResponseEntity.ok(tjscService.getCartorioLivros20());
+    }
+
+    @GetMapping("/cartorio-serventuario")
+    public ResponseEntity<List<CartorioServentuario>> getCartorioServentuarios() {
+        return ResponseEntity.ok(tjscService.getCartorioSeventuarios());
+    }
+
+    @GetMapping("/cartorio-serventuario-20")
+    public ResponseEntity<List<CartorioServentuario20>> getCartorioServentuarios20() {
+        return ResponseEntity.ok(tjscService.getCartorioSeventuarios20());
+    }
+
+    @GetMapping("/juizes-paz")
+    public ResponseEntity<List<JuizPaz>> getJuizesPaz() {
+        return ResponseEntity.ok(tjscService.getJuizesPaz());
+    }
+
+    @GetMapping("/juizes-paz-20")
+    public ResponseEntity<List<JuizPaz20>> getJuizesPaz20() {
+        return ResponseEntity.ok(tjscService.getJuizesPaz20());
+    }
+
     @PostMapping("/municipios")
     public ResponseEntity<List<Municipio>> getMunicipios(@RequestBody(required = false) HashMap<String, Object> filters, Pageable pageable) {
         List<Municipio> list = tjscService.getMunicipios();

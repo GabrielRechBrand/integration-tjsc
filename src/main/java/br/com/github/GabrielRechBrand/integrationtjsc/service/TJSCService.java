@@ -193,8 +193,8 @@ public class TJSCService {
     }
 
     @SneakyThrows
-    public List<CartorioLivro20> getCartorioSeventuarios20() {
-        return getSeloService().getSeloServicePort().getCartorioLivros20(user, password);
+    public List<CartorioServentuario20> getCartorioSeventuarios20() {
+        return getSeloService().getSeloServicePort().getCartorioServentuarios20(user, password);
     }
 
     @SneakyThrows
