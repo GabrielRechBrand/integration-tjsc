@@ -174,16 +174,6 @@ public class TJSCController {
         return ResponseEntity.ok(tjscService.getCartorioLivros20());
     }
 
-    @GetMapping("/cartorio-serventuario")
-    public ResponseEntity<List<CartorioServentuario>> getCartorioServentuarios() {
-        return ResponseEntity.ok(tjscService.getCartorioSeventuarios());
-    }
-
-    @GetMapping("/cartorio-serventuario-20")
-    public ResponseEntity<List<CartorioServentuario20>> getCartorioServentuarios20() {
-        return ResponseEntity.ok(tjscService.getCartorioSeventuarios20());
-    }
-
     @GetMapping("/juizes-paz")
     public ResponseEntity<List<JuizPaz>> getJuizesPaz() {
         return ResponseEntity.ok(tjscService.getJuizesPaz());
@@ -203,6 +193,18 @@ public class TJSCController {
     @PostMapping("/paises")
     public ResponseEntity<List<Pais>> getPaises(@RequestBody(required = false) HashMap<String, Object> filters, Pageable pageable) {
         List<Pais> list = tjscService.getPaises();
+        return ResponseEntity.ok(PaginationService.getFilteredPage(list, pageable, filters));
+    }
+
+    @PostMapping("/cartorio-serventuario")
+    public ResponseEntity<List<CartorioServentuario>> getCartorioServentuarios(@RequestBody(required = false) HashMap<String, Object> filters, Pageable pageable) {
+        List<CartorioServentuario> list = tjscService.getCartorioSeventuarios();
+        return ResponseEntity.ok(PaginationService.getFilteredPage(list, pageable, filters));
+    }
+
+    @PostMapping("/cartorio-serventuario-20")
+    public ResponseEntity<List<CartorioServentuario20>> getCartorioServentuarios20(@RequestBody(required = false) HashMap<String, Object> filters, Pageable pageable) {
+        List<CartorioServentuario20> list = tjscService.getCartorioSeventuarios20();
         return ResponseEntity.ok(PaginationService.getFilteredPage(list, pageable, filters));
     }
 
