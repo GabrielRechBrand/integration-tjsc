@@ -26,6 +26,11 @@ git clone https://github.com/GabrielRechBrand/integration-tjsc.git
 ```properties
 keytool -import -alias [alias] -file [certificate_location] -keystore [cacerts_location]
 ```
+Sendo:
+- **[alias]** = Identificador da sua escolha para o seu certificado.
+- **[certificate_location]** = O local do seu certificado na sua máquina. Você pode usar o caminho relativo do arquivo "certificado-tjsc.crt" na raíz do projeto.
+- **[cacerts_location]** = O local do seu JDK até o arquivo "cacerts", exemplo: `` C:\Users\rwnov\.jdks\corretto-17.0.3\lib\security\cacerts``
+
 
 ### Execução ⚙️
 
@@ -34,6 +39,10 @@ keytool -import -alias [alias] -file [certificate_location] -keystore [cacerts_l
 mvn spring-boot:run
 ```
 - **Java**
+```properties
+mvn clean install
+```
+
 ```properties
 java -jar [jar_location]
 ```
@@ -46,6 +55,14 @@ No **integration-tjsc** foi utilizada a library **Swagger** para documentação 
 > **Localhost: <a href="">http://localhost:8080/swagger-ui/index.html</a>**
 
 Ao acessar o swagger, além de poder visualizar todas as "rotas" da aplicação, também é possível testá-las com algumas funcionalidades básicas, mas é recomendável usar alguma outra ferramenta mais robusta para testes, como o **Postman** ou o **Insomnia**.
+
+### Métricas 📏
+
+> **Tempo de Resposta (ms)**
+<img src="https://i.imgur.com/kiGqfk1.png" />
+
+> **Uso de memória (MB)**
+<img src="https://i.imgur.com/fdHNS16.png" />
 
 ### Tecnologias utilizadas 🗃️
 >_O projeto foi criado a partir do <a href="https://start.spring.io/">Spring Initializr</a>._
