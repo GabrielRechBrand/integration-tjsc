@@ -91,7 +91,9 @@
 		</dependencies>
 	</dependencyManagement>
 
+	<packaging>jar</packaging>
 	<build>
+		<finalName>integration-tjsc</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
